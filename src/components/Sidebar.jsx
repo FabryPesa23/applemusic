@@ -3,7 +3,7 @@ import { Home, Grid, Radio, Search } from 'lucide-react';
 const Sidebar = () => {
   return (
     <div className="text-white">
-      {/* Logo Apple Music */}
+
       <div className="mb-4 ps-2 pt-2">
         <img 
           src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Apple_Music_logo.svg" 

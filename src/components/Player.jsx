@@ -5,14 +5,14 @@ const Player = () => {
     <header className="d-none d-md-flex align-items-center border-bottom border-secondary sticky-top px-3 justify-content-between" 
             style={{ height: "55px", backgroundColor: "#1d1d1f", zIndex: 1040 }}>
       
-      {/* SEZIONE SINISTRA: Controlli */}
+      {/* SEZIONE SINISTRA */}
       <div className="d-flex align-items-center gap-3" style={{ width: "30%" }}>
         <SkipBack size={20} className="text-secondary cursor-pointer" fill="currentColor" />
         <Play size={24} className="text-white cursor-pointer" fill="currentColor" />
         <SkipForward size={20} className="text-secondary cursor-pointer" fill="currentColor" />
       </div>
 
-      {/* SEZIONE CENTRALE: Display con Mela */}
+      {/* SEZIONE CENTRALE */}
       <div className="flex-grow-1 d-flex justify-content-center">
         <div className="d-flex align-items-center justify-content-center rounded-2 border border-secondary shadow-sm" 
              style={{ 
@@ -29,7 +29,7 @@ const Player = () => {
         </div>
       </div>
 
-      {/* SEZIONE DESTRA: Volume e Accedi */}
+      {/* SEZIONE DESTRA */}
       <div className="d-flex align-items-center justify-content-end gap-3" style={{ width: "30%" }}>
         <div className="d-flex align-items-center gap-2">
           <Volume2 size={16} className="text-secondary" />

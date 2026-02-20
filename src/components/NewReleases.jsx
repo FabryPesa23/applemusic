@@ -25,7 +25,7 @@ const NewReleases = () => {
             seenAlbums.add(item.album.id);
             uniqueAlbums.push(item);
           }
-          if (uniqueAlbums.length === 10) break; // Ci fermiamo solo quando ne abbiamo 10
+          if (uniqueAlbums.length === 10) break; 
         }
 
         setAlbums(uniqueAlbums);
@@ -45,9 +45,7 @@ const NewReleases = () => {
     <section className="mb-5">
       <h3 className="fw-bold mb-3 pb-2">Nuove uscite</h3>
       
-      {/* row-cols-lg-5 forza 5 colonne. 
-          Con 10 elementi avrai per forza 2 righe da 5.
-      */}
+
       <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4">
         {albums.map((item) => (
           <div key={item.album.id} className="col">
