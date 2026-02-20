@@ -1,12 +1,16 @@
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Sidebar from "./components/Sidebar";
 import NewReleases from "./components/NewReleases";
 import HeroSection from "./components/HeroSection";
 import RadioEpisodes from "./components/RadioEpisodes";
-import { Play, SkipBack, SkipForward, Volume2, User } from "lucide-react";
+import { Play, Pause, SkipBack, SkipForward, Volume2, User } from "lucide-react";
 
 function App() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(50);
+
   return (
     <div
       className="container-fluid p-0 text-white min-vh-100"
@@ -20,7 +24,6 @@ function App() {
         <div className="text-danger fs-3" style={{ cursor: "pointer" }}>
           ≡
         </div>
-
         <div className="text-center">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
@@ -32,7 +35,6 @@ function App() {
             }}
           />
         </div>
-
         <div
           className="text-danger fw-bold"
           style={{ fontSize: "0.9rem", cursor: "pointer" }}
@@ -57,7 +59,7 @@ function App() {
 
         {/* --- COLONNA DI DESTRA --- */}
         <div className="flex-grow-1 d-flex flex-column">
-          {/* --- NAVBAR / PLAYER DESKTOP --- */}
+          {/* --- NAVBAR / PLAYER DESKTOP CON HOOKS --- */}
           <header
             className="d-none d-md-flex align-items-center sticky-top px-4"
             style={{
@@ -88,11 +90,16 @@ function App() {
                   className="text-secondary"
                   style={{ cursor: "pointer" }}
                 />
-                <Play
-                  size={22}
-                  fill="currentColor"
-                  style={{ cursor: "pointer" }}
-                />
+                
+              
+                <div onClick={() => setIsPlaying(!isPlaying)} style={{ cursor: "pointer" }}>
+                  {isPlaying ? (
+                    <Pause size={22} fill="currentColor" />
+                  ) : (
+                    <Play size={22} fill="currentColor" />
+                  )}
+                </div>
+
                 <SkipForward
                   size={16}
                   fill="currentColor"
@@ -125,6 +132,8 @@ function App() {
                   type="range"
                   className="form-range custom-volume-slider"
                   style={{ width: "70px" }}
+                  value={volume}
+                  onChange={(e) => setVolume(e.target.value)}
                 />
               </div>
             </div>
@@ -143,15 +152,12 @@ function App() {
           {/* --- MAIN CONTENT --- */}
           <main className="p-4 pb-5">
             <div className="d-md-none" style={{ height: "54px" }}></div>
-
             <h1 className="fw-bold display-5 mb-4">Novità</h1>
             <hr className="border-secondary mb-4" />
-
             <HeroSection />
             <RadioEpisodes />
             <NewReleases />
 
-            {/* Sezione Esplora */}
             <section className="mt-5 mb-5">
               <h3 className="fw-bold mb-3 pb-2">Altro da esplorare</h3>
               <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
@@ -194,25 +200,17 @@ function App() {
                     English (UK)
                   </span>
                 </p>
-
                 <p className="mb-3">
                   Copyright © 2024{" "}
                   <span className="text-white">Apple Inc.</span> Tutti i diritti
                   riservati.
                 </p>
-
                 <div className="d-flex flex-wrap gap-3 text-white-50">
-                  <span className="cursor-pointer hover-white">
-                    Condizioni dei servizi internet
-                  </span>
+                  <span className="cursor-pointer hover-white">Condizioni dei servizi internet</span>
                   <span className="border-end border-secondary border-opacity-50"></span>
-                  <span className="cursor-pointer hover-white">
-                    Apple Music e privacy
-                  </span>
+                  <span className="cursor-pointer hover-white">Apple Music e privacy</span>
                   <span className="border-end border-secondary border-opacity-50"></span>
-                  <span className="cursor-pointer hover-white">
-                    Avviso sui cookie
-                  </span>
+                  <span className="cursor-pointer hover-white">Avviso sui cookie</span>
                   <span className="border-end border-secondary border-opacity-50"></span>
                   <span className="cursor-pointer hover-white">Supporto</span>
                   <span className="border-end border-secondary border-opacity-50"></span>
@@ -244,7 +242,9 @@ function App() {
           </div>
           <div className="text-white d-flex align-items-center gap-3">
             <SkipBack size={20} fill="currentColor" />
-            <Play size={28} fill="currentColor" />
+            <div onClick={() => setIsPlaying(!isPlaying)}>
+               {isPlaying ? <Pause size={28} fill="currentColor" /> : <Play size={28} fill="currentColor" />}
+            </div>
             <SkipForward size={20} fill="currentColor" />
           </div>
         </div>
