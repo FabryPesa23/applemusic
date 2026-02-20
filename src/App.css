@@ -1,0 +1,59 @@
+body {
+  background-color: #1F1F1F !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica;
+}
+
+.bg-dark {
+  background-color: #1a1a1a !important; /* Grigio scuro Apple */
+}
+
+.text-danger {
+  color: #CC4E5C !important; /* Rosso Apple Music */
+}
+
+/* Effetto hover sulle card */
+.card img {
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.card img:hover {
+  transform: scale(1.02);
+}
+.bg-sidebar {
+  /* Colore grigio scuro Apple Music */
+  background-color: #252526 !important; 
+  
+  /* Opzionale: se vuoi un effetto vetro (blur) come su macOS */
+  backdrop-filter: blur(20px);
+}
+
+/* Assicurati che il componente Sidebar all'interno non abbia sfondi suoi */
+aside .nav-link {
+  transition: background-color 0.2s;
+}
+
+aside .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+/* Forza il colore del placeholder affinché sia visibile */
+.form-control::placeholder {
+  color: #a0a0a0 !important; /* Grigio chiaro visibile */
+  opacity: 1; /* Necessario per Firefox */
+}
+
+/* Rimuove qualsiasi residuo di bordo quando l'input è attivo */
+.form-control:focus {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+#sectionEx{
+  background-color: #2C2C2C !important; 
+}
+
+p{
+  color: #a0a0a0 !important;
+}
+
