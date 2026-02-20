@@ -59,67 +59,77 @@ function App() {
         <div className="flex-grow-1 d-flex flex-column">
           {/* --- NAVBAR / PLAYER DESKTOP --- */}
           <header
-            className="d-none d-md-flex align-items-center sticky-top px-4 justify-content-between"
-            style={{ height: "60px", backgroundColor: "#2C2C2C", zIndex: 1040 }}
+            className="d-none d-md-flex align-items-center sticky-top px-4"
+            style={{
+              height: "60px",
+              backgroundColor: "#2C2C2C",
+              zIndex: 1040,
+              borderBottom: "1px solid #3B3B3C",
+              position: "relative",
+            }}
           >
-            {/* 1. Controlli Player - POSIZIONE RIENTRATA DAL BORDO */}
             <div
-              className="d-flex align-items-center gap-4"
-              style={{ width: "30%", paddingLeft: "40px" }}
+              className="d-flex align-items-center justify-content-center"
+              style={{
+                position: "absolute",
+                left: "50%",
+                transform: "translateX(-50%)",
+                whiteSpace: "nowrap",
+                width: "auto",
+              }}
             >
-              <SkipBack
-                size={18}
-                fill="currentColor"
-                style={{ cursor: "pointer", opacity: 0.8 }}
-              />
-              <Play
-                size={24}
-                fill="currentColor"
-                style={{ cursor: "pointer" }}
-              />
-              <SkipForward
-                size={18}
-                fill="currentColor"
-                style={{ cursor: "pointer", opacity: 0.8 }}
-              />
-            </div>
+              <div
+                className="d-flex align-items-center gap-3"
+                style={{ marginRight: "110px" }}
+              >
+                <SkipBack
+                  size={16}
+                  fill="currentColor"
+                  className="text-secondary"
+                  style={{ cursor: "pointer" }}
+                />
+                <Play
+                  size={22}
+                  fill="currentColor"
+                  style={{ cursor: "pointer" }}
+                />
+                <SkipForward
+                  size={16}
+                  fill="currentColor"
+                  className="text-secondary"
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
 
-            {/* 2. Display Centrale */}
-            <div className="flex-grow-1 d-flex justify-content-center">
               <div
                 className="d-flex align-items-center justify-content-center rounded-1"
                 style={{
                   backgroundColor: "#4D4D4D",
-                  width: "100%",
-                  maxWidth: "480px",
-                  height: "48px",
+                  width: "420px",
+                  height: "45px",
                 }}
               >
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
                   alt="Apple"
-                  style={{
-                    width: "20px",
-                    filter: "invert(1)",
-                    opacity: 0.9,
-                  }}
+                  style={{ width: "20px", filter: "invert(1)", opacity: 0.8 }}
                 />
               </div>
-            </div>
 
-            {/* 3. Volume e Accedi - POSIZIONE RIENTRATA DAL BORDO */}
-            <div
-              className="d-flex align-items-center justify-content-end gap-3"
-              style={{ width: "30%", paddingRight: "40px" }}
-            >
-              <div className="d-flex align-items-center gap-2 me-2">
-                <Volume2 size={16} className="text-secondary" />
+              <div
+                className="d-flex align-items-center gap-2"
+                style={{ marginLeft: "110px" }}
+              >
+                <Volume2 size={12} className="text-secondary" />
                 <input
                   type="range"
                   className="form-range custom-volume-slider"
                   style={{ width: "70px" }}
                 />
               </div>
+            </div>
+
+            <div style={{ marginLeft: "auto" }}>
               <button
                 className="btn btn-danger btn-sm px-3 fw-bold d-flex align-items-center gap-1"
                 style={{ fontSize: "0.75rem", borderRadius: "4px" }}
